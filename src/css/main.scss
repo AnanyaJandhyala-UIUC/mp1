@@ -89,7 +89,7 @@ button {
     left: 0;
     width: 100%;
 
-    height: 92px;
+    height: 100px;
 
     background: rgba($dark, 0.96);
     color: $white;
@@ -100,18 +100,24 @@ button {
     z-index: 1000;
 
     transition:
-        height 0.3s ease,
-        background 0.3s ease;
+        height 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
 
     &.compact {
-        height: 62px;
+        height: 56px;
+
+        background: rgba($dark, 0.99);
+
+        box-shadow:
+            0 4px 18px rgba(0, 0, 0, 0.25);
 
         .logo {
-            font-size: 18px;
+            font-size: 17px;
         }
 
         .nav-links a {
-            font-size: 14px;
+            font-size: 12px;
         }
     }
 }
@@ -125,11 +131,13 @@ button {
 }
 
 .logo {
-    font-size: 23px;
+    font-size: 26px;
     font-weight: 800;
     letter-spacing: 2px;
 
-    transition: font-size 0.3s ease;
+    transition:
+        font-size 0.35s ease,
+        letter-spacing 0.35s ease;
 }
 
 .nav-links {
@@ -139,11 +147,11 @@ button {
     a {
         position: relative;
 
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 500;
 
         transition:
-            font-size 0.3s ease,
+            font-size 0.35s ease,
             opacity 0.2s ease;
 
         &::after {
