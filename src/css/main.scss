@@ -1,1 +1,894 @@
-/* Your SCSS here. */
+// -------------------------
+// VARIABLES
+// -------------------------
+
+$dark: #111318;
+$dark-secondary: #191c23;
+$light: #f7f7f5;
+$white: #ffffff;
+$text: #25282f;
+$muted: #6d717b;
+$accent: #6257ff;
+$border: #dedede;
+
+$max-width: 1180px;
+$section-padding: 100px;
+
+
+// -------------------------
+// MIXINS
+// -------------------------
+
+@mixin container {
+    width: 90%;
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// -------------------------
+// RESET
+// -------------------------
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: $light;
+    color: $text;
+    line-height: 1.6;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+
+// -------------------------
+// NAVBAR
+// -------------------------
+
+.site-header {
+    position: relative;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    height: 92px;
+
+    background: rgba($dark, 0.96);
+    color: $white;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 1000;
+
+    transition:
+        height 0.3s ease,
+        background 0.3s ease;
+
+    &.compact {
+        height: 62px;
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+        }
+    }
+}
+
+.nav-container {
+    @include container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    transition: font-size 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+
+    a {
+        position: relative;
+
+        font-size: 16px;
+        font-weight: 500;
+
+        transition:
+            font-size 0.3s ease,
+            opacity 0.2s ease;
+
+        &::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: $white;
+
+            transition: width 0.25s ease;
+        }
+
+        &:hover {
+            opacity: 0.75;
+        }
+
+        &.active::after {
+            width: 100%;
+        }
+    }
+}
+
+
+// -------------------------
+// SHARED SECTION STYLES
+// -------------------------
+
+.section {
+    width: 100%;
+}
+
+.section-container {
+    @include container;
+
+    padding-top: $section-padding;
+    padding-bottom: $section-padding;
+
+    text-align: center;
+}
+
+.section-label {
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 800;
+
+    color: $accent;
+
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.15;
+
+    margin-bottom: 55px;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin: -30px auto 45px;
+
+    color: $muted;
+}
+
+
+// -------------------------
+// HERO
+// -------------------------
+
+.hero {
+    min-height: 100vh;
+
+    @include flex-center;
+
+    padding: 120px 20px 40px;
+
+    color: $white;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #323757,
+            $dark 48%
+        );
+}
+
+.hero-content {
+    width: min(90%, 850px);
+
+    text-align: center;
+
+    animation: heroFadeUp 1s ease both;
+}
+
+.eyebrow {
+    color: #b3b7ff;
+
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(52px, 8vw, 92px);
+    line-height: 0.95;
+
+    margin-bottom: 26px;
+}
+
+.hero h2 {
+    max-width: 760px;
+
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 400;
+
+    margin: 0 auto 24px;
+}
+
+.hero-description {
+    max-width: 630px;
+
+    margin: 0 auto 38px;
+
+    color: #c5c8d0;
+    font-size: 18px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+
+    padding: 14px 26px;
+
+    border-radius: 999px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button {
+    background: $accent;
+    color: $white;
+}
+
+.secondary-button {
+    background: $dark;
+    color: $white;
+
+    margin-top: 45px;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+// CSS3 animation
+@keyframes heroFadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+// -------------------------
+// ABOUT
+// -------------------------
+
+.light-section {
+    background: $light;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.about-card {
+    background: $white;
+
+    padding: 42px 30px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    i {
+        font-size: 31px;
+
+        color: $accent;
+
+        margin-bottom: 22px;
+    }
+
+    h3 {
+        font-size: 22px;
+
+        margin-bottom: 14px;
+    }
+
+    p {
+        color: $muted;
+    }
+
+    &:hover {
+        transform: translateY(-7px);
+
+        box-shadow:
+            0 20px 45px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+// -------------------------
+// PROJECTS / CAROUSEL
+// -------------------------
+
+.dark-section {
+    background: $dark;
+    color: $white;
+}
+
+.carousel {
+    display: grid;
+
+    grid-template-columns:
+        60px 1fr 60px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+.carousel-window {
+    min-height: 390px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+
+    min-height: 390px;
+
+    padding: 55px;
+
+    border-radius: 20px;
+
+    background: $dark-secondary;
+
+    text-align: left;
+
+    animation: slideFade 0.45s ease;
+
+    &.active {
+        display: block;
+    }
+
+    h3 {
+        font-size: 36px;
+
+        margin: 18px 0;
+    }
+
+    p {
+        max-width: 620px;
+
+        color: #c8cad1;
+
+        font-size: 18px;
+    }
+}
+
+.project-number {
+    color: #878bff;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 35px;
+
+    span {
+        padding: 8px 13px;
+
+        background: rgba($white, 0.08);
+
+        border-radius: 999px;
+
+        font-size: 13px;
+    }
+}
+
+.carousel-button {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: $white;
+    color: $dark;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+    &:hover {
+        transform: scale(1.08);
+
+        background: #ddddff;
+    }
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #555965;
+
+    &.active {
+        background: $white;
+    }
+}
+
+@keyframes slideFade {
+
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+// -------------------------
+// SKILLS — MULTI COLUMN
+// -------------------------
+
+.skills-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+.skill-column {
+    padding: 42px 25px;
+
+    background: $white;
+
+    border-top: 4px solid $accent;
+
+    h3 {
+        font-size: 23px;
+
+        margin: 20px 0;
+    }
+
+    i {
+        font-size: 32px;
+        color: $accent;
+    }
+
+    p {
+        color: $muted;
+
+        padding: 5px;
+    }
+}
+
+
+// -------------------------
+// FIXED BACKGROUND
+// -------------------------
+
+.journey-section {
+    min-height: 600px;
+
+    background-image:
+        url("../assets/image.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.journey-overlay {
+    min-height: 600px;
+
+    @include flex-center;
+
+    padding: 40px;
+
+    background: rgba(8, 10, 16, 0.74);
+}
+
+.journey-content {
+    max-width: 780px;
+
+    color: $white;
+    text-align: center;
+
+    h2 {
+        font-size: clamp(40px, 7vw, 70px);
+
+        margin-bottom: 22px;
+    }
+
+    p:last-child {
+        font-size: 20px;
+
+        color: #d5d7dc;
+    }
+}
+
+
+// -------------------------
+// VIDEO
+// -------------------------
+
+.portfolio-video {
+    display: block;
+
+    width: min(100%, 900px);
+
+    margin: 0 auto;
+
+    border-radius: 16px;
+
+    background: $dark;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.16);
+}
+
+
+// -------------------------
+// CONTACT
+// -------------------------
+
+.contact-section {
+    background: #ececf5;
+}
+
+.contact-content {
+    text-align: center;
+
+    h2 {
+        font-size: clamp(38px, 6vw, 64px);
+
+        max-width: 780px;
+
+        margin: 0 auto 20px;
+    }
+
+    > p:not(.section-label) {
+        color: $muted;
+
+        margin-bottom: 34px;
+    }
+}
+
+
+// -------------------------
+// FOOTER
+// -------------------------
+
+footer {
+    background: $dark;
+    color: $white;
+}
+
+.footer-container {
+    @include container;
+
+    min-height: 120px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+
+    gap: 22px;
+
+    a {
+        font-size: 23px;
+
+        transition:
+            transform 0.2s ease,
+            opacity 0.2s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+
+            opacity: 0.7;
+        }
+    }
+}
+
+
+// -------------------------
+// MODAL
+// -------------------------
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 2000;
+
+    &.open {
+        display: flex;
+    }
+}
+
+.modal-content {
+    position: relative;
+
+    width: min(100%, 650px);
+
+    background: $white;
+
+    padding: 50px;
+
+    border-radius: 20px;
+
+    animation: modalIn 0.25s ease;
+
+    h2 {
+        font-size: 35px;
+
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 15px;
+
+        color: $muted;
+    }
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    background: transparent;
+
+    font-size: 33px;
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+// -------------------------
+// RESPONSIVE
+// -------------------------
+
+@media (max-width: 1024px) {
+
+    .nav-links {
+        gap: 17px;
+
+        a {
+            font-size: 14px;
+        }
+    }
+
+    .section-container {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 76px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 7px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .nav-links {
+        gap: 11px;
+
+        a {
+            font-size: 11px;
+        }
+    }
+
+    .navbar.compact {
+        height: 60px;
+
+        .nav-container {
+            flex-direction: row;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+        }
+    }
+
+
+    .about-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .carousel {
+        grid-template-columns:
+            42px 1fr 42px;
+
+        gap: 8px;
+    }
+
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slide {
+        padding: 35px 25px;
+
+        min-height: 440px;
+
+        h3 {
+            font-size: 29px;
+        }
+    }
+
+
+    .footer-container {
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 16px;
+
+        padding: 30px 0;
+    }
+
+}

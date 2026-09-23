@@ -1,13 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MP1</title>
-    </head>
-    <body>
-        <h1>Hello World! Welcome to MP1!</h1>
-        <img src="assets/image.jpg">
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ananya | Portfolio</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="navbar" id="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo smooth-link">
+                ANANYA
+            </a>
+
+            <div class="nav-links">
+                <a href="#home" class="nav-link smooth-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#journey" class="nav-link">Journey</a>
+                <a href="#video" class="nav-link">Video</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+        </div>
+
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+    <section id="home" class="section hero">
+
+        <div class="hero-content">
+
+            <p class="eyebrow">
+                PRODUCT • AI • SOFTWARE
+            </p>
+
+            <h1>
+                Hi, I'm Ananya.
+            </h1>
+
+            <h2>
+                I build thoughtful technology
+                for real-world problems.
+            </h2>
+
+            <p class="hero-description">
+                I'm a graduate student interested in product,
+                artificial intelligence, software engineering,
+                and building useful digital experiences.
+            </p>
+
+            <a href="#projects" class="primary-button smooth-link">
+                Explore My Work
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section light-section">
+
+        <div class="section-container">
+
+            <p class="section-label">ABOUT</p>
+
+            <h2 class="section-title">
+                A little about me
+            </h2>
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <h3>Student</h3>
+
+                    <p>
+                        I am pursuing graduate studies at the
+                        University of Illinois Urbana-Champaign
+                        with interests spanning technology,
+                        data, and product development.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <i class="fa-solid fa-code"></i>
+
+                    <h3>Builder</h3>
+
+                    <p>
+                        I enjoy turning ideas into working
+                        software using web technologies,
+                        data tools, and AI systems.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <h3>Problem Solver</h3>
+
+                    <p>
+                        I like understanding user problems,
+                        breaking them into manageable pieces,
+                        and designing practical solutions.
+                    </p>
+                </div>
+
+            </div>
+
+            <button id="open-modal" class="secondary-button">
+                Learn More About Me
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section dark-section">
+
+        <div class="section-container">
+
+            <p class="section-label">PROJECTS</p>
+
+            <h2 class="section-title">
+                Things I've built
+            </h2>
+
+            <div class="carousel">
+
+                <button
+                    class="carousel-button previous"
+                    id="previous-slide"
+                    aria-label="Previous project"
+                >
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="carousel-window">
+
+                    <article class="slide active">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <h3>DyslexiEase</h3>
+
+                        <p>
+                            An accessibility-focused project
+                            exploring AI-generated educational
+                            content designed to make information
+                            easier to consume.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>AI</span>
+                            <span>Accessibility</span>
+                            <span>Python</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="slide">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <h3>AI Chef</h3>
+
+                        <p>
+                            A generative-AI product concept
+                            designed to help users discover meals
+                            using available ingredients and
+                            personalized food preferences.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>GenAI</span>
+                            <span>Product</span>
+                            <span>Web</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="slide">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <h3>Analytics Assistant</h3>
+
+                        <p>
+                            A project analytics assistant that
+                            converts sprint information into
+                            useful metrics such as velocity,
+                            completion rate, and blockers.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>LLM</span>
+                            <span>Pandas</span>
+                            <span>Analytics</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <button
+                    class="carousel-button next"
+                    id="next-slide"
+                    aria-label="Next project"
+                >
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+            <div class="carousel-dots">
+
+                <button class="dot active" data-slide="0"></button>
+                <button class="dot" data-slide="1"></button>
+                <button class="dot" data-slide="2"></button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills" class="section light-section">
+
+        <div class="section-container">
+
+            <p class="section-label">SKILLS</p>
+
+            <h2 class="section-title">
+                What I work with
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill-column">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h3>Product</h3>
+
+                    <p>Product Strategy</p>
+                    <p>User Research</p>
+                    <p>Roadmapping</p>
+                    <p>Agile</p>
+
+                </div>
+
+
+                <div class="skill-column">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h3>AI & Data</h3>
+
+                    <p>Machine Learning</p>
+                    <p>Python</p>
+                    <p>SQL</p>
+                    <p>Analytics</p>
+
+                </div>
+
+
+                <div class="skill-column">
+
+                    <i class="fa-solid fa-laptop-code"></i>
+
+                    <h3>Engineering</h3>
+
+                    <p>JavaScript</p>
+                    <p>HTML & SCSS</p>
+                    <p>APIs</p>
+                    <p>Git</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FIXED BACKGROUND -->
+    <section id="journey" class="section journey-section">
+
+        <div class="journey-overlay">
+
+            <div class="journey-content">
+
+                <p class="section-label">
+                    MY APPROACH
+                </p>
+
+                <h2>
+                    Build with purpose.
+                </h2>
+
+                <p>
+                    The best technology starts with understanding
+                    the problem, designing for people, and
+                    continuously learning from feedback.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEO -->
+    <section id="video" class="section light-section">
+
+        <div class="section-container">
+
+            <p class="section-label">PROJECT DEMO</p>
+
+            <h2 class="section-title">
+                See my work in action
+            </h2>
+
+            <p class="section-intro">
+                A short demonstration of one of my technology projects.
+            </p>
+
+            <video class="portfolio-video" controls>
+                <source
+                    src="assets/hero-recording.mp4"
+                    type="video/mp4"
+                >
+                Your browser does not support the HTML5 video element.
+            </video>
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+
+        <div class="section-container contact-content">
+
+            <p class="section-label">
+                CONTACT
+            </p>
+
+            <h2>
+                Let's build something interesting.
+            </h2>
+
+            <p>
+                I'm always interested in technology,
+                product, and new ideas.
+            </p>
+
+            <a
+                href="mailto:example@example.com"
+                class="primary-button"
+            >
+                Say Hello
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <p>
+            © 2026 Ananya
+        </p>
+
+        <div class="social-links">
+
+            <a
+                href="https://github.com/AnanyaJandhyala-UIUC"
+                target="_blank"
+                aria-label="GitHub"
+            >
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+                href="https://www.linkedin.com/in/ananya-jandhyala/"
+                target="_blank"
+                aria-label="LinkedIn"
+            >
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a
+                href="ananya22@illinois.edu"
+                aria-label="Email"
+            >
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- MODAL -->
+<div class="modal" id="about-modal">
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            id="close-modal"
+            aria-label="Close modal"
+        >
+            &times;
+        </button>
+
+        <p class="section-label">
+            MORE ABOUT ME
+        </p>
+
+        <h2>
+            Curious by nature.
+        </h2>
+
+        <p>
+            I enjoy working at the intersection of technology
+            and people. My interests include artificial
+            intelligence, product development, data,
+            accessibility, and building tools that simplify
+            complicated workflows.
+        </p>
+
+        <p>
+            Outside of building projects, I enjoy learning
+            how emerging technologies can be translated into
+            products that create meaningful user value.
+        </p>
+
+    </div>
+
+</div>
+
+</body>
 </html>
